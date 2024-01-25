@@ -35,15 +35,93 @@ let numeroDoChute = document.querySelector('.container__input')
 function ola(){
     console.log('olá, mundo!')
 }
-ola()*/
- // ex2
-
- function ola(name) {
-
-    console.log ('olá')
-
- }
 ola()
+ // ex2
+ 
+function fazerMake(tipodemake, adicionalPenteado){
+
+const cliente = ("a cliente precisará de: "+ tipodemake + ' e ' + 'penteado: ' +adicionalPenteado);
+
+return cliente;
+
+}
+
+const pedidoFinalCliente = fazerMake('semipreso', 'nãoooo');
+
+console.log (pedidoFinalCliente);
+
+
+//ex3 
+ 
+function retornarDobro (numero){
+
+const fraseNumero =  ('O dobro de  '+ numero +' é: '+ numero*2);
+
+return fraseNumero;
+
+}
+
+const respostaNumero = retornarDobro(2);
+
+console.log (respostaNumero)
+
+
+
+function verificarFamilia(tempoDeCasamento, IdadeFilhos) {
+
+    const familia = ('A família está casada há ' + tempoDeCasamento + 'e possui filhos com ' + IdadeFilhos + ' de idade');
+    return familia
+}
+
+const familiaFinal = verificarFamilia('3 anos','2 meses');
+
+console.log(familiaFinal)
+
+
+//ex4
+function verificarMedia(num1,num2,num3) {
+
+
+const fraseMedia = ('a média dos números '+num1+' '+'+ '+ num2+' '+'+'+num3+' é igual a : '+ (num1+num2+num3)/3);
+
+return fraseMedia
+
+}
+
+const parametrosdafunction = verificarMedia(4,6,8);
+
+console.log(parametrosdafunction)
+
+
+
+
+
+
+
+if (num1 > num2) {
+    maiorNumero = num1
+} else {
+    maiorNumero = num2
+}
+*/
+
+//ex5
+
+function retornarMaiorNumero(num1, num2) {
+
+    const fraseMaiorNumero = ('O maior dos números entre ' + num1 + ' ' + ' e ' + num2 + ' é o número ' + num2);
+   
+    return fraseMaiorNumero;
+}
+
+
+const retornoComParametros = retornarMaiorNumero(4, 6)
+
+console.log(retornoComParametros)
+
+
+
+
 
 
 
