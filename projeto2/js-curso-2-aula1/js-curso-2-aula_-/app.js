@@ -103,7 +103,7 @@ if (num1 > num2) {
 } else {
     maiorNumero = num2
 }
-*/
+
 
 //ex5
 
@@ -121,13 +121,12 @@ console.log(retornoComParametros)
 
 
 
-
+*/
 
 
 
 let numeroSecreto = gerarUmNumeroAleatorio();
 let numeroDoChute = document.querySelector('input').value;
-
 
 
 function exibirTextoNaTela(tag, texto) {
@@ -152,6 +151,9 @@ function verificarChute() {
 
     let numeroDoChute = document.querySelector('input').value;
     numeroDoChute.value = ' ';
+    var cont = 1;
+    cont++;
+    let botaoIniciar = document.getElementById('reiniciar');
 
 
     //console.log('O número secreto é: ' + numeroSecreto)
@@ -161,14 +163,16 @@ function verificarChute() {
 
     if (numeroDoChute == numeroSecreto) {
 
-        alert("você acertou o número secreto: " + numeroSecreto)
+        exibirTextoNaTela('p', 'Você acertou o número Secreto: '+ numeroSecreto +' com '+cont + ' tentativas');
+        botaoIniciar.removeAttribute('disabled');
+        
 
     } else if (numeroDoChute > numeroSecreto) {
 
-        alert("O número secreto é menor que " + numeroDoChute)
+        exibirTextoNaTela('p', 'O número secreto é menor que : '+ numeroDoChute + ' você tentou até agora '+cont+' vezes');
 
     } else {
-        alert("O número secreto é maior que " + numeroDoChute)
+        exibirTextoNaTela('p', 'O número secreto é maior que : '+ numeroDoChute + ' você tentou até agora '+cont+' vezes');
     }
 }
 
