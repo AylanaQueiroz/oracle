@@ -139,42 +139,40 @@ exibirTextoNaTela('h1', 'Jogo do número Secreto');
 exibirTextoNaTela('p', 'Escolha um número entre 1 e 10');
 
 
+
 function gerarUmNumeroAleatorio() {
 
-    return parseInt(Math.random() * 10 + 1)
-    console.log(numeroSecreto)
+    return parseInt(Math.random() * 10 + 1);
+
 }
+
+console.log('o número secreto gerado aleatoriamente é ' + numeroSecreto)
 
 
 
 function verificarChute() {
 
     let numeroDoChute = document.querySelector('input').value;
-    numeroDoChute.value = ' ';
-    var cont = 1;
-    cont++;
     let botaoIniciar = document.getElementById('reiniciar');
-
-
-    //console.log('O número secreto é: ' + numeroSecreto)
-
-    //console.log('O número que você chutou foi: ' + numeroChute)
-
+    cont = 1;
 
     if (numeroDoChute == numeroSecreto) {
 
-        exibirTextoNaTela('p', 'Você acertou o número Secreto: '+ numeroSecreto +' com '+cont + ' tentativas');
+        exibirTextoNaTela('p', 'Você acertou o número Secreto: ' + numeroSecreto + ' com ' + cont + ' tentativas');
         botaoIniciar.removeAttribute('disabled');
-        
 
-    } else if (numeroDoChute > numeroSecreto) {
-
-        exibirTextoNaTela('p', 'O número secreto é menor que : '+ numeroDoChute + ' você tentou até agora '+cont+' vezes');
 
     } else {
-        exibirTextoNaTela('p', 'O número secreto é maior que : '+ numeroDoChute + ' você tentou até agora '+cont+' vezes');
+        if (numeroDoChute > numeroSecreto) {
+
+            exibirTextoNaTela('p', 'O número secreto é menor que: ' + numeroDoChute + ' você tentou até agora ' + cont + ' vezes');
+
+        }  else {
+            exibirTextoNaTela('p', 'O número secreto é maior que: ' + numeroDoChute + ' você tentou até agora ' + cont + ' vezes');
+        } cont++
     }
 }
+
 
 
 
