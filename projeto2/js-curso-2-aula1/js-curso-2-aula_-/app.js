@@ -151,25 +151,28 @@ console.log('o número secreto gerado aleatoriamente é ' + numeroSecreto)
 
 
 function verificarChute() {
-
+    let cont = 0;
+   
     let numeroDoChute = document.querySelector('input').value;
-    let botaoIniciar = document.getElementById('reiniciar');
-    cont = 1;
+    /*let botaoIniciar = document.getElementById('reiniciar');*/
+    cont++;
+   
+   
 
     if (numeroDoChute == numeroSecreto) {
-
+        
         exibirTextoNaTela('p', 'Você acertou o número Secreto: ' + numeroSecreto + ' com ' + cont + ' tentativas');
         botaoIniciar.removeAttribute('disabled');
-
+        
 
     } else {
         if (numeroDoChute > numeroSecreto) {
 
-            exibirTextoNaTela('p', 'O número secreto é menor que: ' + numeroDoChute + ' você tentou até agora ' + cont + ' vezes');
+            exibirTextoNaTela('p', 'O número secreto é menor que: ' + numeroDoChute + ' você tentou até agora ' +  cont+ ' vezes');
 
         }  else {
             exibirTextoNaTela('p', 'O número secreto é maior que: ' + numeroDoChute + ' você tentou até agora ' + cont + ' vezes');
-        } cont++
+        } 
     }
 }
 
