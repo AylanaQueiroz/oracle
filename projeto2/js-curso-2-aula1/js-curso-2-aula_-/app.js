@@ -124,10 +124,14 @@ console.log(retornoComParametros)
 */
 
 
-
+let ListaNumeroSorteado = [];
+let tamanhoLista =10;
 let numeroSecreto = gerarUmNumeroAleatorio();
 let numeroDoChute = document.querySelector('input').value;
 let cont = 0;
+
+
+
 
 function exibirTextoNaTela(tag, texto) {
     let campo = document.querySelector(tag);
@@ -138,7 +142,20 @@ exibirTextoNaTela('h1', 'Jogo do número Secreto');
 exibirTextoNaTela('p', 'Escolha um número entre 1 e 10');
 
 function gerarUmNumeroAleatorio() {
-    return parseInt(Math.random() * 10 + 1);
+    let numeroEscolhido = parseInt(Math.random() * tamanhoLista + 1);
+    let quantidadeMaxima = ListaNumeroSorteado.length;
+    if (quantidadeMaxima == tamanhoLista) {
+        ListaNumeroSorteado = [];
+    }
+
+
+    if (ListaNumeroSorteado.includes(numeroEscolhido)) {
+        return gerarUmNumeroAleatorio()
+    } else {
+        ListaNumeroSorteado.push(numeroEscolhido)
+        console.log(ListaNumeroSorteado)
+        return numeroEscolhido;
+    }
 }
 
 console.log('o número secreto gerado aleatoriamente é ' + numeroSecreto)
@@ -171,5 +188,7 @@ function novoJogo() {
     exibirTextoNaTela('h1', 'Jogo do número Secreto');
     exibirTextoNaTela('p', 'Escolha um número entre 1 e 10');
     cont = 0;
-    console.log('NOVO NUMERO ALEATÓRIO GERADO' + numeroSecreto)
+    console.log('NOVO NUMERO ALEATÓRIO GERADO' + numeroSecreto);
+    document.getElementById('reiniciar').setAttribute('disabled', true)
+
 }
