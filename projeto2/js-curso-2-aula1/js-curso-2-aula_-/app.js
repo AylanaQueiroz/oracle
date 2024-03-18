@@ -127,10 +127,9 @@ console.log(retornoComParametros)
 
 let numeroSecreto = gerarUmNumeroAleatorio();
 let numeroDoChute = document.querySelector('input').value;
-
+let cont = 0;
 
 function exibirTextoNaTela(tag, texto) {
-
     let campo = document.querySelector(tag);
     campo.innerHTML = texto
 }
@@ -138,48 +137,39 @@ function exibirTextoNaTela(tag, texto) {
 exibirTextoNaTela('h1', 'Jogo do número Secreto');
 exibirTextoNaTela('p', 'Escolha um número entre 1 e 10');
 
-
-
 function gerarUmNumeroAleatorio() {
-
     return parseInt(Math.random() * 10 + 1);
-
 }
 
 console.log('o número secreto gerado aleatoriamente é ' + numeroSecreto)
 
-
-
 function verificarChute() {
-    let cont = 0;
-   
     let numeroDoChute = document.querySelector('input').value;
     /*let botaoIniciar = document.getElementById('reiniciar');*/
     cont++;
-   
-   
 
     if (numeroDoChute == numeroSecreto) {
-        
         exibirTextoNaTela('p', 'Você acertou o número Secreto: ' + numeroSecreto + ' com ' + cont + ' tentativas');
-        botaoIniciar.removeAttribute('disabled');
-        
-
+        document.getElementById('reiniciar').removeAttribute('disabled');
     } else {
         if (numeroDoChute > numeroSecreto) {
-
-            exibirTextoNaTela('p', 'O número secreto é menor que: ' + numeroDoChute + ' você tentou até agora ' +  cont+ ' vezes');
-
-        }  else {
+            exibirTextoNaTela('p', 'O número secreto é menor que: ' + numeroDoChute + ' você tentou até agora ' + cont + ' vezes');
+        } else {
             exibirTextoNaTela('p', 'O número secreto é maior que: ' + numeroDoChute + ' você tentou até agora ' + cont + ' vezes');
-        } 
+        } limparCampo()
     }
 }
 
+function limparCampo() {
+    numeroDoChute = document.querySelector('input');
+    numeroDoChute.value = ''
+}
 
-
-
-
-
-
-
+function novoJogo() {
+    numeroSecreto = gerarUmNumeroAleatorio();
+    limparCampo();
+    exibirTextoNaTela('h1', 'Jogo do número Secreto');
+    exibirTextoNaTela('p', 'Escolha um número entre 1 e 10');
+    cont = 0;
+    console.log('NOVO NUMERO ALEATÓRIO GERADO' + numeroSecreto)
+}
